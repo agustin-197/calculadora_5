@@ -26,8 +26,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 SPDX-License-Identifier: MIT
 *************************************************************************************************/
 
-/** @file plantilla.c
- ** @brief Plantilla para la creación de archivos de código fuente en lenguaje C
+/** @file calculadora.c
+ ** @brief Implementación de la calculadora abstracta utilizando listas enlazadas.
  **/
 
 /* === Headers files inclusions ================================================================ */
@@ -39,22 +39,38 @@ SPDX-License-Identifier: MIT
 
 /* === Private data type declarations ========================================================== */
 
+/**
+ * @brief Estructura de un nodo para la lista enlazada de operaciones.
+ * * Almacena el identificador de la operación, el puntero a la función que la resuelve 
+ * y un puntero al siguiente elemento de la lista.
+ */
 typedef struct operacion_s
 {
-    char operador;
-    operacion_func_t funcion;
-    struct operacion_s *siguiente;
+    char operador;                  /**< Carácter que identifica la operación (ej. '+') */
+    operacion_func_t funcion;       /**< Puntero a la función que realiza el cálculo */
+    struct operacion_s *siguiente;  /**< Puntero al siguiente nodo en la lista enlazada */
 } *operacion_t;
 
+/**
+ * @brief Estructura principal de la calculadora.
+ * * Contiene el estado interno de la calculadora, oculto al cliente, 
+ * representado por un puntero al inicio de la lista de operaciones.
+ */
 struct calculadora_s
 {
-    operacion_t operaciones;
+    operacion_t operaciones;        /**< Puntero al primer elemento de la lista enlazada */
 };
-
-
 
 /* === Private function declarations =========================================================== */
 
+/**
+ * @brief Busca una operación específica en la memoria de la calculadora.
+ * * Recorre la lista enlazada de operaciones buscando una coincidencia con el carácter 
+ * suministrado.
+ * * @param calc Puntero a la instancia de la calculadora.
+ * @param operador Carácter que representa la operación a buscar.
+ * @return operacion_t Puntero al nodo encontrado, o NULL si no existe la operación.
+ */
 static operacion_t BuscarOperacion(calculadora_t calc, char operador);
 
 /* === Private variable definitions ============================================================ */
@@ -65,6 +81,9 @@ static operacion_t BuscarOperacion(calculadora_t calc, char operador);
 
 /* === Public function implementation ========================================================== */
 
+/**
+ * @brief Constructor de la calculadora.
+ */
 calculadora_t CrearCalculadora(void){
 
     calculadora_t calc = malloc(sizeof(struct calculadora_s));
@@ -78,6 +97,9 @@ calculadora_t CrearCalculadora(void){
 
 }
 
+/**
+ * @brief Agrega una nueva operación soportada a la calculadora.
+ */
 void AgregarOperacion(calculadora_t calc, char operador, operacion_func_t funcion){
 
     if (calc == NULL) return;
@@ -95,6 +117,9 @@ void AgregarOperacion(calculadora_t calc, char operador, operacion_func_t funcio
 
 }
 
+/**
+ * @brief Resuelve una operación matemática mediante el patrón estrategia.
+ */
 int Calcular(calculadora_t calc, int a, int b, char operador){
 
     if (calc == NULL)

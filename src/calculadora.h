@@ -29,8 +29,8 @@ SPDX-License-Identifier: MIT
 #ifndef CALCULADORA_H_
 #define CALCULADORA_H_
 
-/** @file plantilla.h
- ** @brief Plantilla para la creacion de archivos de cabeceras en lenguaje C
+/** @file calculadora.h
+ ** @brief Definiciones y firmas públicas de la calculadora abstracta.
  **/
 
 /* === Headers files inclusions ==================================================================================== */
@@ -45,20 +45,38 @@ extern "C" {
 
 /* === Public data type declarations =============================================================================== */
 
-//definicion del tipo de date puntero a la estructura principal
+/** @brief Definición del tipo de dato puntero a la estructura principal */
 typedef struct calculadora_s * calculadora_t;
 
+/** @brief Puntero a función tipado con los argumentos y el retorno de las operaciones */
 typedef int (*operacion_func_t)(int, int);
-
 
 /* === Public variable declarations ================================================================================ */
 
 /* === Public function declarations ================================================================================ */
 
+/**
+ * @brief Crea un nuevo objeto de calculadora en un estado conocido.
+ * @return calculadora_t Puntero a la instancia creada.
+ */
 calculadora_t CrearCalculadora(void);
 
+/**
+ * @brief Registra una nueva operación matemática en la calculadora.
+ * @param calc Puntero a la instancia de la calculadora.
+ * @param operador Carácter que representa la operación (ej. '+', '-').
+ * @param funcion Puntero a la función que ejecuta el cálculo.
+ */
 void AgregarOperacion(calculadora_t calc, char operador, operacion_func_t funcion);
 
+/**
+ * @brief Identifica la operación y utiliza la función correspondiente para completar el cálculo.
+ * @param calc Puntero a la instancia de la calculadora.
+ * @param a Primer operando.
+ * @param b Segundo operando.
+ * @param operador Carácter que representa la operación a ejecutar.
+ * @return int Resultado de la operación matemática.
+ */
 int Calcular(calculadora_t calc, int a, int b, char operador);
 
 /* === End of conditional blocks =================================================================================== */

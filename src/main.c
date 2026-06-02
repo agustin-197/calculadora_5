@@ -1,18 +1,46 @@
+/** * @file main.c
+ * @brief Programa principal para probar la calculadora abstracta.
+ **/
+
 #include <stdio.h>
 #include "calculadora.h"
 
+/**
+ * @brief Implementación de la operación suma.
+ * @param a Primer operando.
+ * @param b Segundo operando.
+ * @return int Resultado de la suma (a + b).
+ */
 int sumar(int a, int b){
     return a+b;
 }
 
+/**
+ * @brief Implementación de la operación resta.
+ * @param a Primer operando.
+ * @param b Segundo operando.
+ * @return int Resultado de la resta (a - b).
+ */
 int restar(int a, int b){
     return a-b;
 }
 
+/**
+ * @brief Implementación de la operación multiplicación.
+ * @param a Primer operando.
+ * @param b Segundo operando.
+ * @return int Resultado de la multiplicación (a * b).
+ */
 int multiplicar(int a, int b){
     return a*b;
 }
 
+/**
+ * @brief Implementación de la operación división con protección contra división por cero.
+ * @param a Primer operando (dividendo).
+ * @param b Segundo operando (divisor).
+ * @return int Resultado de la división (a / b), o 0 si el divisor es 0.
+ */
 int dividir(int a, int b){
     if (b == 0)
     {
@@ -22,6 +50,13 @@ int dividir(int a, int b){
     return a/b;
 }
 
+/**
+ * @brief Función principal del programa.
+ * * Crea una instancia de la calculadora abstracta, registra las operaciones básicas
+ * (suma, resta, multiplicación y división) y ejecuta una serie de cálculos de prueba 
+ * para verificar su correcto funcionamiento por consola.
+ * * @return int Código de salida del programa (0 si la ejecución fue exitosa).
+ */
 int main(void){
 
     calculadora_t mi_calculadora = CrearCalculadora();
