@@ -4,7 +4,7 @@ Facultad de Ciencias Exactas y Tecnologia
 Universidad Nacional de Tucuman
 http://www.microprocesadores.unt.edu.ar/
 
-Copyright 2016-2025, Esteban Volentini <evolentini@herrera.unt.edu.ar>
+Copyright 2026, Díaz Gerardo Agustín <agustin041097@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -31,6 +31,7 @@ SPDX-License-Identifier: MIT
 
 /** @file calculadora.h
  ** @brief Definiciones y firmas públicas de la calculadora abstracta.
+ ** @author Díaz Gerardo Agustín
  **/
 
 /* === Headers files inclusions ==================================================================================== */
