@@ -54,7 +54,7 @@ SPDX-License-Identifier: MIT
  * @param b Segundo operando.
  * @return int Resultado de la suma (a + b).
  */
-int sumar(int a, int b){
+static int sumar(int a, int b){
     return a+b;
 }
 
@@ -64,7 +64,7 @@ int sumar(int a, int b){
  * @param b Segundo operando.
  * @return int Resultado de la resta (a - b).
  */
-int restar(int a, int b){
+static int restar(int a, int b){
     return a-b;
 }
 
@@ -74,7 +74,7 @@ int restar(int a, int b){
  * @param b Segundo operando.
  * @return int Resultado de la multiplicación (a * b).
  */
-int multiplicar(int a, int b){
+static int multiplicar(int a, int b){
     return a*b;
 }
 
@@ -84,7 +84,7 @@ int multiplicar(int a, int b){
  * @param b Segundo operando (divisor).
  * @return int Resultado de la división (a / b), o 0 si el divisor es 0.
  */
-int dividir(int a, int b){
+static int dividir(int a, int b){
     if (b == 0)
     {
         return 0;
