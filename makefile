@@ -1,4 +1,5 @@
 SRC_DIR = ./src
+INC_DIR = ./inc
 OBJ_DIR = ./build/obj
 BIN_DIR = ./build/bin
 DOC_DIR = ./build/doc
@@ -22,7 +23,7 @@ doc:
 	doxygen Doxyfile
 
 format:
-	clang-format -i $(SRC_DIR)/*.c $(SRC_DIR)/*.h
+	clang-format -i $(SRC_DIR)/*.c $(INC_DIR)/*.h
 
 clean:
 	rm -rf build
